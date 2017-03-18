@@ -1,0 +1,295 @@
+    1  cd /etc
+    2  ls
+    3  vi bash.bashrc 
+    4  exit
+    5  ls
+    6  cd /root
+    7  ls
+    8  oc cluster up --metrics --version=v1.4.1
+    9  ls
+   10  cd /opt
+   11  ls
+   12  tar -xvf /home/smugalamunga/Downloads/openshift-origin-server-v1.5.0-rc.0-49a4a7a-linux-64bit.tar 
+   13  ls
+   14  rm openshift
+   15  ln -s openshift-origin-server-v1.5.0-rc.0-49a4a7a-linux-64bit openshift
+   16  ls
+   17  cd 
+   18  ls
+   19  ls -lart
+   20  pwd
+   21  oc --version
+   22  oc version
+   23  ls
+   24  git clone https://github.com/OpenShiftDemos/openshift-cd-demo.git
+   25  git checkout origin-1.4
+   26  cd openshift-cd-demo/
+   27  git checkout origin-1.4
+   28  git update
+   29  git pull
+   30  ls
+   31  git branch
+   32  oc cluster up --metrics --version=v1.4.1
+   33  oc get projects
+   34  docker exec -it origin bash
+   35  history 
+   36  oc cluster down
+   37  docker ps
+   38  oc cluster up --version=v1.4.1
+   39  oc login -u system:admin
+   40  oc delete is --all -n openshift
+   41  oc create -f https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-rhel7.json -n openshift
+   42  oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/jboss-image-streams.json -n openshift
+   43  oc cluster down
+   44  docker ps
+   45  docker ps -a
+   46  oc cluster up --version=v1.4.1
+   47  oc login -u system:admin
+   48  oc delete is --all -n openshift
+   49  oc create -f https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-rhel7.json -n openshift
+   50  oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/jboss-image-streams.json -n openshift
+   51  oc cluster down
+   52  oc cluster up 
+   53  history 
+   54  oc login -u system:admin
+   55  oc delete is --all -n openshift
+   56  oc create -f https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-rhel7.json -n openshift
+   57  oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/jboss-image-streams.json -n openshift
+   58  history 
+   59  oc cluster down
+   60  oc cluster up 
+   61  history 
+   62  oc login -u system:admin
+   63  oc delete is --all -n openshift
+   64  oc create -f https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-rhel7.json -n openshift
+   65  oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/jboss-image-streams.json -n openshift
+   66  oc cluster down
+   67  history 
+   68  oc cluster up 
+   69  history 
+   70  oc login -u system:admin
+   71  oc delete is --all -n openshift
+   72  oc create -f https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-rhel7.json -n openshift
+   73  oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/jboss-image-streams.json -n openshift
+   74  history 
+   75  oc options
+   76  history oc cluster status
+   77  oc cluster status
+   78  history
+   79  oc cluster down
+   80  export KUBECONFIG=/var/lib/origin/openshift.local.config/master/admin.kubeconfig 
+   81  export CURL_CA_BUNDLE=/var/lib/origin/openshift.local.config/master/ca.crt 
+   82  chmod +r /var/lib/origin/openshift.local.config/master/admin.kubeconfig 
+   83  oc cluster up
+   84  history 
+   85  oc login -u system:admin
+   86  oc delete is --all -n openshift
+   87  oc create -f https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-rhel7.json -n openshift
+   88  oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/jboss-image-streams.json -n openshift
+   89  history 
+   90  docker ps
+   91  history 
+
+    1  cd /etc
+    2  ls
+    3  vi bash.bashrc 
+    4  exit
+    5  ls
+    6  cd openshift-cd-demo/
+    7  ls
+    8  cd /etc/
+    9  cd docker/
+   10  ls
+   11  vi daemon.json
+   12  systemctl restart docker
+   13  oc new-project dev --display-name="Tasks - Dev"
+   14  oc new-project stage --display-name="Tasks - Stage"
+   15  oc new-project cicd --display-name="CI/CD"
+   16  cd
+   17  cd openshift-cd-demo/
+   18  ls
+   19  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n dev
+   20  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n stage
+   21  oc process -f cicd-template.yaml | oc create -f -
+   22  oc process -f cicd-template.yaml -v DEV_PROJECT=dev-project-name -v STAGE_PROJECT=stage-project-name | oc create -f - -n cicd-project-name
+   23  oc login -u system:admin
+   24  oc process -f cicd-template.yaml -v DEV_PROJECT=dev-project-name -v STAGE_PROJECT=stage-project-name | oc create -f - -n cicd-project-name
+   25  ls
+   26  history
+   27  oc new-project dev --display-name="Tasks - Dev"
+   28  oc new-project stage --display-name="Tasks - Stage"
+   29  oc new-project cicd --display-name="CI/CD"
+   30  oc login developer:developer
+   31  oc login 
+   32  oc new-project dev --display-name="Tasks - Dev"
+   33  oc login 
+   34  history
+   35  oc new-project dev --display-name="Tasks - Dev"
+   36  oc new-project stage --display-name="Tasks - Stage"
+   37  oc new-project cicd --display-name="CI/CD"
+   38  history 
+   39  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n dev
+   40  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n stage
+   41  history 
+   42  oc process -f cicd-template.yaml | oc create -f -
+   43  history 
+   44  oc login -u developer:developer
+   45  oc login
+   46  oc new-project dev --display-name="Tasks - Dev"
+   47  oc new-project stage --display-name="Tasks - Stage"
+   48  oc new-project cicd --display-name="CI/CD"
+   49  history 
+   50  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n dev
+   51  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n stage
+   52  oc process -f cicd-template.yaml | oc create -f -
+   53  history 
+   54  oc new-project dev --display-name="Tasks - Dev"
+   55  oc new-project stage --display-name="Tasks - Stage"
+   56  oc login
+   57  history 
+   58  oc new-project dev --display-name="Tasks - Dev"
+   59  oc new-project stage --display-name="Tasks - Stage"
+   60  oc new-project cicd --display-name="CI/CD"
+   61  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n dev
+   62  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n stage
+   63  oc process -f cicd-template.yaml | oc create -f -
+   64  history 
+   65  oc login
+   66  oc new-project dev --display-name="Tasks - Dev"
+   67  oc new-project stage --display-name="Tasks - Stage"
+   68  oc new-project cicd --display-name="CI/CD"
+   69  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n dev
+   70  oc policy add-role-to-user edit system:serviceaccount:cicd:default -n stage
+   71  oc process -f cicd-template.yaml | oc create -f -
+   72  export KUBECONFIG=/var/lib/origin/openshift.local.config/master/admin.kubeconfig 
+   73  export CURL_CA_BUNDLE=/var/lib/origin/openshift.local.config/master/ca.crt
+   74  history 
+
+
+    1  docker images
+    2  ls
+    3  cd ..
+    4  cd Downloads/
+    5  l
+    6  ls
+    7  gunzip openshift-origin-client-tools-v1.4.1-3f9807a-linux-64bit.tar.gz 
+    8  ls
+    9  gunzip openshift-origin-server-v1.4.1-3f9807a-linux-64bit.tar.gz 
+   10  cd /opt
+   11  ls
+   12  sudo tar -xvf /home/smugalamunga/Downloads/openshift-origin-server-v1.4.1-3f9807a-linux-64bit.tar 
+   13  ls
+   14  sudo ln -s openshift-origin-server-v1.4.1+3f9807a-linux-64bit openshift
+   15  ls
+   16  cd /etc
+   17  ls
+   18  docker images
+   19  sudo su -
+   20  exit
+   21  sudo apt-get update
+   22  sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+   23  sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
+   24  sudo apt-get update
+   25  apt-cache policy docker-engine
+   26  sudo apt-get install -y docker-engine
+   27  sudo systemctl status docker
+   28  sudo usermod -aG docker smugalamunga
+   29  newgrp docker 
+   30  exit
+   31  code
+   32  cd
+   33  dir
+   34  mkdir Development
+   35  cd Development/
+   36  git clone https://github.com/jkurisu/cicd.git
+   37  cd cicd/
+   38  ls
+   39  code .
+   40  history 
+
+       1  docker images
+    2  ls
+    3  cd ..
+    4  cd Downloads/
+    5  l
+    6  ls
+    7  gunzip openshift-origin-client-tools-v1.4.1-3f9807a-linux-64bit.tar.gz 
+    8  ls
+    9  gunzip openshift-origin-server-v1.4.1-3f9807a-linux-64bit.tar.gz 
+   10  cd /opt
+   11  ls
+   12  sudo tar -xvf /home/smugalamunga/Downloads/openshift-origin-server-v1.4.1-3f9807a-linux-64bit.tar 
+   13  ls
+   14  sudo ln -s openshift-origin-server-v1.4.1+3f9807a-linux-64bit openshift
+   15  ls
+   16  cd /etc
+   17  ls
+   18  docker images
+   19  sudo su -
+   20  exit
+   21  sudo apt-get update
+   22  sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+   23  sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
+   24  sudo apt-get update
+   25  apt-cache policy docker-engine
+   26  sudo apt-get install -y docker-engine
+   27  sudo systemctl status docker
+   28  sudo usermod -aG docker smugalamunga
+   29  newgrp docker 
+   30  exit
+   31  docker ps
+   32  docker exec -it 2dddbff19046 bash
+   33  docker ps
+   34  docker exec -it a77b09c3e6fd bash
+   35  docker exec -it a77b09c3e6fd /bin/bash
+   36  docker exec -it a77b09c3e6fd /bin/csh
+   37  docker logs a77b09c3e6fd
+   38  docker exec -it a77b09c3e6fd /bin/bash
+   39  docker exec -it 2dddbff19046 bash
+   40  docker --version
+   41  apt-cache showpkg docker-engine
+   42  sudo apt-get install -y docker-engine=1.13.1-0~ubuntu-xenial
+   43  sudo systemctl status docker
+   44  docker --version
+   45  sudo systemctl restart docker
+   46  docker --version
+   47  sudo apt-get purge docker-engine
+   48  docker
+   49  sudo apt-get install -y docker-engine=1.13.1-0~ubuntu-xenial
+   50  sudo systemctl status docker
+   51  docker --version
+   52  docker ps
+   53  docker logs origin 
+   54  docker ps
+   55  docker logs origin 
+   56  docker logs origin | more
+   57  ls
+   58  cd /var/lib
+   59  ls
+   60  cd origin/
+   61  ls
+   62  ls -lart
+   63  cd openshift.local.config/
+   64  ls
+   65  cd master/
+   66  ls
+   67  ls -la
+   68  pwd
+   69  history 
+
+
+Install docker 1.13.1
+
+latest docker causes issues in validation when starting openshift.
+
+Use openshift 1.5.0*
+
+/etc/docker/daemon.json
+
+{
+    "insecure-registries": ["172.30.0.0/16"]
+}
+
+https://forums.docker.com/t/how-can-i-install-a-specific-version-of-the-docker-engine/1993/8
+
+http://tips.tutorialhorizon.com/2016/07/30/how-to-completely-uninstall-docker-from-ubuntu/
